@@ -12,8 +12,9 @@ JAVA=/usr/bin/java
 $(BINDIR)/%.class: $(SRCDIR)/%.java
 	$(JAVAC) -d $(BINDIR)/ -cp $(BINDIR) $<
 
-CLASSES2= WordDictionary.class \
+CLASSES2=#WordDictionary.class \
 	  FallingWord.class \
+	  WordDictionary.class \
 	  Score.class \
 	  ScoreUpdater.class \
 	  CatchWord.class \
@@ -26,6 +27,6 @@ CLASSES=$(CLASSES2:%.class=$(BINDIR)/%.class)
 default: $(CLASSES)
 
 run: $(CLASSES)
-	$(JAVA) -cp $(BINDIR) TypingTutorApp $(totalWords) $(NumWords) 
+	$(JAVA) -cp $(BINDIR) typingTutor.TypingTutorApp $(totalWords) $(NumWords) 
 clean:
 	rm $(BINDIR)/*.class
